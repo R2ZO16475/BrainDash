@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BrainDash</title>
+<style>
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #eee;
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 100vh;
+    user-select: none;
+  }
+  h1, h2 { text-align: center; }
+  button {
+    cursor: pointer;
+    background: #00c6ff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #0072ff;
+  }
+  input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 0.5rem;
+    width: 250px;
+    font-size: 1rem;
+  }
+  #lobby, #game, #shop, #leaderboard, #questionModal {
+    background: rgba(0,0,0,0.6);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #00c6ff;
+    margin-top: 1rem;
+    display: none;
+    width: 320px;
+    max-width: 90vw;
+  }
+  .visible {
+    display: block !important;
+  }
+  #playerList li {
+    padding: 0.2rem 0.4rem;
+    border-bottom: 1px solid #0072ff88;
+  }
+  #hud {
+    margin-top: 1rem;
+    width: 320px;
+    max-width: 90vw;
+    background: rgba(0,0,0,0.7);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px #00c6ff;
+  }
+  #stats span {
+    margin-right: 1rem;
+    font-weight: 600;
+  }
+  canvas {
+    background: #111;
+    border: 2px solid #00c6ff;
+    border-radius: 0.75rem;
+    display: block;
+    margin: 1rem auto;
+  }
+</style>
+</head>
+<body>
+
+  <h1>BrainDash</h1>
+
+  <div id="auth">
+    <input id="nameInput" type="text" placeholder="Enter your name" />
+    <button id="createBtn">Create Game</button>
+    <input id="joinCodeInput" type="text" placeholder="Enter Game Code" maxlength="6" style="width:140px" />
+    <button id="joinBtn">Join Game</button>
+  </div>
+
+  <div id="lobby">
+    <h2>Lobby - Code: <span id="gameCodeDisplay">---</span></h2>
+    <ul id="playerList"></ul>
+    <button id="startGameBtn">Start Game</button>
+  </div>
+
+  <div id="game">
+    <div id="hud">
+      <div id="stats">
+        <span id="playerNameStat"></span>
+        <span>⚡ <span id="energyStat">100</span></span>
+        <span>💰 <span id="cashStat">0</span></span>
+        <span>⭐ <span id="xpStat">0</span></span>
+        <span>⏱️ <span id="timerStat">300</span>s</span>
+      </div>
+      <button id="openShopBtn">🛒 Shop</button>
+      <button id="showLeaderboardBtn">📊 Leaderboard</button>
+    </div>
+    <canvas id="gameCanvas" width="600" height="450"></canvas>
+  </div>
+
+  <div id="questionModal">
+    <h3 id="questionText">Question goes here</h3>
+    <input id="answerInput" type="number" placeholder="Your answer" />
+    <div style="text-align:center;">
+      <button id="submitAnswerBtn">Submit</button>
+      <button id="skipQuestionBtn">Skip</button>
+    </div>
+    <p id="feedback" style="text-align:center; margin-top:1rem;"></p>
+  </div>
+
+  <div id="shop">
+    <h3>Shop Upgrades</h3>
+    <ul id="shopItems"></ul>
+    <button id="closeShopBtn">Close Shop</button>
+  </div>
+
+  <div id="leaderboard">
+    <h3>Leaderboard</h3>
+    <ul id="leaderboardList"></ul>
+    <button id="closeLeaderboardBtn">Close Leaderboard</button>
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
