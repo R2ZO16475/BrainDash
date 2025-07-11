@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  user-select: none;
+}
+
+h1, h2 {
+  text-align: center;
+  text-shadow: 0 0 8px #00c6ff;
+}
+
+button {
+  cursor: pointer;
+  background: #00c6ff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 15px #00c6ff77;
+}
+
+button:hover {
+  background: #0072ff;
+  box-shadow: 0 6px 20px #0072ffaa;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0.5rem;
+  width: 250px;
+  font-size: 1rem;
+  box-shadow: inset 0 0 8px #00c6ff99;
+  background: #222;
+  color: #eee;
+}
+
+input::placeholder {
+  color: #66cfffaa;
+}
+
+#lobby, #game, #shop, #leaderboard, #questionModal {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px #00c6ffbb;
+  margin-top: 1rem;
+  display: none;
+  width: 320px;
+  max-width: 90vw;
+}
+
+.visible {
+  display: block !important;
+}
+
+#playerList li, #leaderboardList li, #shopItems li {
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid #0072ff55;
+  font-weight: 600;
+}
+
+#stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#stats span {
